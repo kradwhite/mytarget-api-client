@@ -22,30 +22,73 @@ MyTarget API Client for PHP.
 ## Использование
 ### Оглавление
 - 1 [Получение токена](https://github.com/kradwhite/mytarget-api-client#Получение-токена)
-    + [С помощью mytarget-api-oauth-client](https://github.com/kradwhite/mytarget-api-client#C-помощью-mytarget-oauth2-client)
-    + [Ваш вариант](https://github.com/kradwhite/mytarget-api-client#Ваш-вариант)
 - 2 [Инициализация клиента](https://github.com/kradwhite/mytarget-api-client#Инициализация-клиента)
-- 3 [Примеры запросов](https://github.com/kradwhite/mytarget-api-client#Примеры-запросов)
-- 4 [Полезная информация](https://github.com/kradwhite/mytarget-api-client#Полезная-информация)
+- 3 [Конфигурация клиента](https://github.com/kradwhite/mytaget-api-client#Конфигурация-клиета)
+- 4 [Примеры запросов](https://github.com/kradwhite/mytarget-api-client#Примеры-запросов)
+- 5 [Полезная информация](https://github.com/kradwhite/mytarget-api-client#Полезная-информация)
 
 ## Получение токена
-### С помощью mytarget-oauth2-client
-В файле `composer.json`:
 ```php
-{
-    ...
-    "require": {
-        ...
-        "kradwhite/mytarget-oauth-client": "*"
-    }
-    ...
-}
-```
-...
-```php
-use kradwhite\mytarget\oauth
+use kradwhite\mytarget\oauth\Oauth2;
 
 $oauth = new Oauth2();
 $token = $oauth->clientCredentialsGrant('client_id', 'client_secret')->request();
 $access_token = $token['access_token'];
 ```
+
+## Инициализация клиента
+```php
+use kradwhite\mytarget\api\Api;
+
+$client = new Api($access_token);
+```
+
+## Конфигурация клиента
+```php
+$config = [
+    'sandbox' => true, // по умолчанию false. Если true, запросы будут отправляться к песочнице myTarget.
+    'assoc' => false, // по умолчанию true. Если true, ответом на запросы к myTarget будет ассоциативный массив, в противно случае объект.    
+    'debug' => true, // по умолчанию false. Включает опцию debug http://docs.guzzlephp.org/en/stable/request-options.html#debug.
+    'timeout' => 0, // по умолчанию 0. Установка опции timeout http://docs.guzzlephp.org/en/stable/request-options.html#timeout
+    'transport' => Class::name, // по умолчанию kradwhite\mytarget\transport\Transport. Имя класса реализующего интерфей kradwhite\mytarget\transport\TransportInterface.
+];
+
+$client = new Api($access_token, $config);
+```
+
+## Примеры запросов
+
+### получение кампаний
+```php
+// получение кампаний
+$allCampaigns = $client->campaigns()->get();
+
+// получение активных кампаний
+$activedCampaigns = $client->campaigns()->get([
+    '_status' => 'active',
+    'sorting' => 'id'
+]);
+
+// создание ссылки
+$newUrlId = $client->createUrl()->post([
+    'url' => 'http://example.com/123456789?1=1'
+]);
+
+// редактирование рекламного объявления
+$response = $client->banner()->post([
+    'status' => 'blocked'
+]);
+
+// запрос статистика по кампании
+$statistics = $client->statistics->get(
+    'campaigns',        // название ресурса campaigns, banners или user.
+    '1234',             // id ресурса, или несколько через запятую
+    'base',             // по умолчанию base, метрика
+    'day',              // по умолчанию summary, summary или days. Eсли days, нужно указать 2 следующих параметры в виде даты
+    '2019-10-08'        // дата начала статистики
+    '2019-11-01'        // дата конца статистика
+);
+```
+
+##Полезная информация
+В классе kradwhite\mytarget\api\Api перед каждым методом в комментариях имеется ссылка оффициальную страницу в документации myTarget, по запрашиваемому ресурсу.
