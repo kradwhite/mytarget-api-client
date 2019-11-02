@@ -21,11 +21,11 @@ MyTarget API Client for PHP.
 
 ## Использование
 ### Оглавление
-1 ol [Получение токена](https://github.com/kradwhite/mytarget-api-client#Получение-токена)
-2 ol [Инициализация клиента](https://github.com/kradwhite/mytarget-api-client#Инициализация-клиента)
-3 ol [Конфигурация клиента](https://github.com/kradwhite/mytaget-api-client#Конфигурация-клиета)
-4 ol [Примеры запросов](https://github.com/kradwhite/mytarget-api-client#Примеры-запросов)
-5 ol [Полезная информация](https://github.com/kradwhite/mytarget-api-client#Полезная-информация)
+1. [Получение токена](https://github.com/kradwhite/mytarget-api-client#Получение-токена)
+2. [Инициализация клиента](https://github.com/kradwhite/mytarget-api-client#Инициализация-клиента)
+3. [Конфигурация клиента](https://github.com/kradwhite/mytaget-api-client#Конфигурация-клиета)
+4. [Примеры запросов](https://github.com/kradwhite/mytarget-api-client#Примеры-запросов)
+5. [Полезная информация](https://github.com/kradwhite/mytarget-api-client#Полезная-информация)
 
 ## Получение токена
 ```php
