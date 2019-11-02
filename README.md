@@ -47,11 +47,20 @@ $client = new Client($access_token);
 ## Конфигурация клиента
 ```php
 $config = [
-    'sandbox' => true, // по умолчанию false. Если true, запросы будут отправляться к песочнице myTarget.
-    'assoc' => false, // по умолчанию true. Если true, ответом на запросы к myTarget будет ассоциативный массив, в противно случае объект.    
-    'debug' => true, // по умолчанию false. Включает опцию debug http://docs.guzzlephp.org/en/stable/request-options.html#debug.
-    'timeout' => 0, // по умолчанию 0. Установка опции timeout http://docs.guzzlephp.org/en/stable/request-options.html#timeout.
-    'transport' => Class::name, // по умолчанию kradwhite\mytarget\transport\Transport. Имя класса реализующего интерфейс kradwhite\mytarget\transport\TransportInterface.
+    // по умолчанию false. Если true, запросы будут отправляться к песочнице myTarget.
+    'sandbox' => true,
+    // по умолчанию true. Если true, ответом на запросы к myTarget будет ассоциативный массив,
+    // в противно случае объект.
+    'assoc' => false,
+    // по умолчанию false. Включает опцию debug
+    // http://docs.guzzlephp.org/en/stable/request-options.html#debug.
+    'debug' => true,
+    // по умолчанию 0. Установка опции timeout
+    // http://docs.guzzlephp.org/en/stable/request-options.html#timeout.
+    'timeout' => 0,
+    // по умолчанию kradwhite\mytarget\transport\Transport. Имя класса реализующего
+    // интерфейс kradwhite\mytarget\transport\TransportInterface.
+    'transport' => Class::name,
 ];
 
 // инициализация клиента с конфигурацией
@@ -81,12 +90,19 @@ $response = $client->banner()->post([
 
 // запрос статистика по кампании
 $statistics = $client->statistics()->get(
-    'campaigns',        // название ресурса campaigns, banners или user.
-    '1234',             // id ресурса, или несколько, через запятую
-    'base',             // по умолчанию base, метрика
-    'day',              // по умолчанию summary, summary или days. Eсли days, нужно указать 2 следующих параметры в виде даты
-    '2019-10-08'        // дата начала статистики
-    '2019-11-01'        // дата конца статистика
+    // название ресурса campaigns, banners или user.
+    'campaigns',
+    // id ресурса, или несколько, через запятую
+    '1234',
+    // по умолчанию base, метрика
+    'base',
+    // по умолчанию summary, summary или days. Eсли days, нужно указать 
+    // 2 следующих параметры в виде даты
+    'day',
+    // дата начала статистики
+    '2019-10-08'
+    // дата конца статистика
+    '2019-11-01'
 );
 ```
 
