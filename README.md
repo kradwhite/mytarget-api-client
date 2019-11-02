@@ -29,7 +29,7 @@ MyTarget API Client for PHP
 
 ## Получение токена
 ```php
-use kradwhite\mytarget\oauth2\Oauth2;
+use kradwhite\myTarget\oauth2\Oauth2;
 
 $oauth = new Oauth2();
 $token = $oauth->clientCredentialsGrant('client_id', 'client_secret')->request();
@@ -39,7 +39,7 @@ $access_token = $token['access_token'];
 
 ## Инициализация клиента
 ```php
-use kradwhite\mytarget\api\Client;
+use kradwhite\myTarget\api\Client;
 
 $client = new Client($access_token);
 ```
@@ -58,7 +58,7 @@ $config = [
     // по умолчанию 0. Установка опции timeout
     // http://docs.guzzlephp.org/en/stable/request-options.html#timeout.
     'timeout' => 0,
-    // по умолчанию kradwhite\mytarget\transport\Transport. Имя класса реализующего
+    // по умолчанию kradwhite\myTarget\transport\Transport. Имя класса реализующего
     // интерфейс kradwhite\mytarget\transport\TransportInterface.
     'transport' => Class::name,
 ];
@@ -77,22 +77,28 @@ $activedCampaigns = $client->campaigns()->get([
     '_status' => 'active',
     'sorting' => 'id'
 ]);
+```
 
+```php
 // создание ссылки
 $newUrlId = $client->createUrl()->post([
     'url' => 'http://example.com/123456789?1=1'
 ]);
+```
 
+```php
 // редактирование рекламного объявления
 $response = $client->banner()->post([
     'status' => 'blocked'
 ]);
+```
 
+```php
 // запрос статистика по кампании
 $statistics = $client->statistics()->get(
-    // название ресурса campaigns, banners или user.
+    // название ресурса campaigns, banners или user
     'campaigns',
-    // id ресурса, или несколько, через запятую
+    // id ресурса, или несколько id через запятую
     '1234',
     // по умолчанию base, метрика
     'base',
@@ -107,5 +113,5 @@ $statistics = $client->statistics()->get(
 ```
 
 ## Полезная информация
-- В классе kradwhite\mytarget\api\Client перед каждым методом в комментариях имеется ссылка на оффициальную страницу в документации myTarget по запрашиваемому ресурсу.
+- В классе kradwhite\myTarget\api\Client перед каждым методом в комментариях имеется ссылка на оффициальную страницу в документации myTarget по запрашиваемому ресурсу.
 - Имена методов клиента для получения ресурсов совпадают с именами ресурсов из официальной документации.
