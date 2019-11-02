@@ -35,7 +35,7 @@ $oauth = new Oauth2();
 $token = $oauth->clientCredentialsGrant('client_id', 'client_secret')->request();
 $access_token = $token['access_token'];
 ```
-Для информации по получению других видов токенов можно познакомится в [kradwhite\mytarget-oauth2](https://github.com/kradwhite/mytarget-oauth2)
+Для получения информации по другим видам токенов можно познакомится в [kradwhite\mytarget-oauth2](https://github.com/kradwhite/mytarget-oauth2)
 
 ## Инициализация клиента
 ```php
@@ -54,7 +54,8 @@ $config = [
     'transport' => Class::name, // по умолчанию kradwhite\mytarget\transport\Transport. Имя класса реализующего интерфейс kradwhite\mytarget\transport\TransportInterface.
 ];
 
-$client = new Api($access_token, $config);
+// инициализация клиента с конфигурацией
+$client = new Client($access_token, $config);
 ```
 
 ## Примеры запросов
