@@ -21,6 +21,7 @@
     "require": {
         "php": "~7.0",
         "guzzlehttp/guzzle": "^6.3",
+        "kradwhite/mytarget-oauth2": "^0.2.2",
         "monolog/monolog": "^2.0"
     },
     "require-dev": {
