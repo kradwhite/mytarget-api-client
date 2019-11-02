@@ -1,4 +1,4 @@
-MyTarget API Client for PHP.
+MyTarget API Client for PHP
 ==============================
 
 Простой и удобный PHP-клиент для [MyTarget Api](https://target.my.com/adv/api-marketing/).
