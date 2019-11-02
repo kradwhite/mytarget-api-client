@@ -1,7 +1,7 @@
 MyTarget API Client for PHP.
 ==============================
 
-Простой и удобный PHP-клиент [MyTarget Api](https://target.my.com/adv/api-marketing/).
+Простой и удобный PHP-клиент для [MyTarget Api](https://target.my.com/adv/api-marketing/).
 
 ## Требования
  * PHP 7.0 и выше
@@ -29,18 +29,19 @@ MyTarget API Client for PHP.
 
 ## Получение токена
 ```php
-use kradwhite\mytarget\oauth\Oauth2;
+use kradwhite\mytarget\oauth2\Oauth2;
 
 $oauth = new Oauth2();
 $token = $oauth->clientCredentialsGrant('client_id', 'client_secret')->request();
 $access_token = $token['access_token'];
 ```
+Для информации по получению других видов токенов можно познакомится в [kradwhite\mytarget-oauth2](https://github.com/kradwhite/mytarget-oauth2)
 
 ## Инициализация клиента
 ```php
-use kradwhite\mytarget\api\Api;
+use kradwhite\mytarget\api\Client;
 
-$client = new Api($access_token);
+$client = new Client($access_token);
 ```
 
 ## Конфигурация клиента
@@ -49,8 +50,8 @@ $config = [
     'sandbox' => true, // по умолчанию false. Если true, запросы будут отправляться к песочнице myTarget.
     'assoc' => false, // по умолчанию true. Если true, ответом на запросы к myTarget будет ассоциативный массив, в противно случае объект.    
     'debug' => true, // по умолчанию false. Включает опцию debug http://docs.guzzlephp.org/en/stable/request-options.html#debug.
-    'timeout' => 0, // по умолчанию 0. Установка опции timeout http://docs.guzzlephp.org/en/stable/request-options.html#timeout
-    'transport' => Class::name, // по умолчанию kradwhite\mytarget\transport\Transport. Имя класса реализующего интерфей kradwhite\mytarget\transport\TransportInterface.
+    'timeout' => 0, // по умолчанию 0. Установка опции timeout http://docs.guzzlephp.org/en/stable/request-options.html#timeout.
+    'transport' => Class::name, // по умолчанию kradwhite\mytarget\transport\Transport. Имя класса реализующего интерфейс kradwhite\mytarget\transport\TransportInterface.
 ];
 
 $client = new Api($access_token, $config);
@@ -78,9 +79,9 @@ $response = $client->banner()->post([
 ]);
 
 // запрос статистика по кампании
-$statistics = $client->statistics->get(
+$statistics = $client->statistics()->get(
     'campaigns',        // название ресурса campaigns, banners или user.
-    '1234',             // id ресурса, или несколько через запятую
+    '1234',             // id ресурса, или несколько, через запятую
     'base',             // по умолчанию base, метрика
     'day',              // по умолчанию summary, summary или days. Eсли days, нужно указать 2 следующих параметры в виде даты
     '2019-10-08'        // дата начала статистики
@@ -89,4 +90,5 @@ $statistics = $client->statistics->get(
 ```
 
 ## Полезная информация
-В классе kradwhite\mytarget\api\Api перед каждым методом в комментариях имеется ссылка на оффициальную страницу в документации myTarget, по запрашиваемому ресурсу.
+В классе kradwhite\mytarget\api\Client перед каждым методом в комментариях имеется ссылка на оффициальную страницу в документации myTarget по запрашиваемому ресурсу.
+Имена методов клиента для получения ресурсов совпадают с именами ресурсов из официальной документации.
