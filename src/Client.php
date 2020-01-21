@@ -157,6 +157,14 @@ final class Client
     }
 
     /**
+     * @return int
+     */
+    public function getLastResponseCode(): int
+    {
+        return $this->transport->getLastResponseCode();
+    }
+
+    /**
      * Ресурс, позволяющий построить гистограмму типовой аудитории
      * @see https://target.my.com/doc/api/ru/resource/AudienceScoreStats
      * @return AudienceScoreStats

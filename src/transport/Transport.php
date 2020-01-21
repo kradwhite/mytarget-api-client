@@ -23,6 +23,9 @@ class Transport implements TransportInterface
     /** @var Client */
     private $client;
 
+    /** @var */
+    private $lastResponseCode;
+
     /**
      * Transport constructor.
      * @param Client $client
@@ -45,11 +48,20 @@ class Transport implements TransportInterface
     public function request(string $method, string $path, array $options = [], string $pathSuffix = ".json")
     {
         $response = $this->client->request($method, $path . $pathSuffix, $options);
+        $this->lastResponseCode = $response->getStatusCode();
         if ($response->getStatusCode() > 499) {
             throw new TransferException($response->getReasonPhrase(), $response->getStatusCode());
         }
         $json = $response->getBody()->getContents();
         $result = json_decode($json, $this->config['assoc']);
         return json_last_error() ? $json : $result;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLastResponseCode(): int
+    {
+        return $this->lastResponseCode;
     }
 }
