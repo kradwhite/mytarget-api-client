@@ -18,11 +18,12 @@ use kradwhite\myTarget\api\resources\Resource;
 class User extends Resource
 {
     /**
+     * @param string $fields
      * @return mixed
      */
-    public function get()
+    public function get(string $fields)
     {
-        return $this->request('get', 'user');
+        return $this->request('get', 'user', ['fields' => $fields]);
     }
 
     /**

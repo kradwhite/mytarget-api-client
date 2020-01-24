@@ -12,7 +12,7 @@ class UserTest extends Unit
     public function testGet()
     {
         $api = $this->tester->getApi();
-        $result = $api->user()->get();
+        $result = $api->user()->get('id,account');
         $this->assertIsArray($result);
         $this->assertArrayHasKey('id', $result);
         $this->assertArrayHasKey('username', $result);
