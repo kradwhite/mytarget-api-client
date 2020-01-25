@@ -26,8 +26,6 @@ class Unit extends \Codeception\Module
 
     /**
      * @return Client
-     * @throws \kradwhite\myTarget\api\exceptions\AccessTokenException
-     * @throws \kradwhite\myTarget\api\exceptions\TransportException
      */
     public function getApi(): Client
     {

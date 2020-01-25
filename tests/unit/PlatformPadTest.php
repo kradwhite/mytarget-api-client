@@ -15,7 +15,7 @@ class PlatformPadTest extends Unit
         $this->assertIsArray($result);
         $this->assertArrayHasKey('error', $result);
         $this->assertEquals($result['error']['code'], 'access_denied');
-        $this->assertEquals($result['error']['required_permission'], ['create_pads', 'moderate_pads']);
+        $this->assertEquals($result['error']['required_permission'], ['create_pads', 'moderate_pads', 'view_platforms']);
     }
 
     protected function _before()

@@ -30,4 +30,14 @@ interface TransportInterface
      * @return mixed
      */
     public function request(string $method, string $path, array $options = [], string $pathSuffix = "");
+
+    /**
+     * @return int
+     */
+    public function getLastResponseCode(): int;
+
+    /**
+     * @return array
+     */
+    public function getLastResponseHeaders(): array;
 }

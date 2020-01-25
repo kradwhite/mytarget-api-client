@@ -83,6 +83,7 @@ use kradwhite\myTarget\api\resources\contextual_targeting\SearchPhrasesListError
 use kradwhite\myTarget\api\resources\contextual_targeting\SearchPhrasesLists;
 use kradwhite\myTarget\api\resources\finance\Transaction;
 use kradwhite\myTarget\api\resources\finance\TransactionGroups;
+use kradwhite\myTarget\api\resources\limits\Throttling;
 use kradwhite\myTarget\api\resources\partner_platforms\BannerTopics;
 use kradwhite\myTarget\api\resources\partner_platforms\GroupPad;
 use kradwhite\myTarget\api\resources\partner_platforms\GroupPadPad;
@@ -162,6 +163,14 @@ final class Client
     public function getLastResponseCode(): int
     {
         return $this->transport->getLastResponseCode();
+    }
+
+    /**
+     * @return array
+     */
+    public function getLastResponseHeaders(): array
+    {
+        return $this->transport->getLastResponseHeaders();
     }
 
     /**
@@ -1417,6 +1426,14 @@ final class Client
     public function statisticsUnique(): StatisticsUnique
     {
         return new StatisticsUnique($this->transport);
+    }
+
+    /**
+     * @return Throttling
+     */
+    public function throttling(): Throttling
+    {
+        return new Throttling($this->transport);
     }
 
     /**

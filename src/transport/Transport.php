@@ -26,6 +26,9 @@ class Transport implements TransportInterface
     /** @var */
     private $lastResponseCode;
 
+    /** @var array */
+    private $lastResponseHeaders;
+
     /**
      * Transport constructor.
      * @param Client $client
@@ -49,6 +52,7 @@ class Transport implements TransportInterface
     {
         $response = $this->client->request($method, $path . $pathSuffix, $options);
         $this->lastResponseCode = $response->getStatusCode();
+        $this->lastResponseHeaders = $response->getHeaders();
         if ($response->getStatusCode() > 499) {
             throw new TransferException($response->getReasonPhrase(), $response->getStatusCode());
         }
@@ -63,5 +67,13 @@ class Transport implements TransportInterface
     public function getLastResponseCode(): int
     {
         return $this->lastResponseCode;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLastResponseHeaders(): array
+    {
+        return $this->lastResponseHeaders;
     }
 }
