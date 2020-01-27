@@ -15,9 +15,7 @@ class UserTest extends Unit
         $result = $api->user()->get('id,account');
         $this->assertIsArray($result);
         $this->assertArrayHasKey('id', $result);
-        $this->assertArrayHasKey('username', $result);
-        $this->assertArrayHasKey('firstname', $result);
-        $this->assertArrayHasKey('lastname', $result);
+        $this->assertArrayHasKey('account', $result);
         $this->assertEquals(200, $api->getLastResponseCode());
     }
 
