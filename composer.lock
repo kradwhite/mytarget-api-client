@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b57c861ef95bd79f9c1801b6a225aa17",
+    "content-hash": "98044e762322fd32e4091b5a4bcc70e7",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -229,19 +229,20 @@
         },
         {
             "name": "kradwhite/mytarget-oauth2",
-            "version": "0.2.4",
+            "version": "0.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kradwhite/mytarget-oauth2.git",
-                "reference": "032244167e552e29d5dd38ed385df7494f8a8497"
+                "reference": "5d1b71e8a485aad141bc5a324e85dac5b2a5a076"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kradwhite/mytarget-oauth2/zipball/032244167e552e29d5dd38ed385df7494f8a8497",
-                "reference": "032244167e552e29d5dd38ed385df7494f8a8497",
+                "url": "https://api.github.com/repos/kradwhite/mytarget-oauth2/zipball/5d1b71e8a485aad141bc5a324e85dac5b2a5a076",
+                "reference": "5d1b71e8a485aad141bc5a324e85dac5b2a5a076",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "guzzlehttp/guzzle": "^7.3",
                 "php": "~7.0"
             },
@@ -281,7 +282,7 @@
                 "oauth2",
                 "token"
             ],
-            "time": "2021-06-02T08:47:44+00:00"
+            "time": "2021-06-02T10:10:06+00:00"
         },
         {
             "name": "psr/http-client",
