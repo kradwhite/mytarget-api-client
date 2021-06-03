@@ -39,10 +39,22 @@ class RemarketingUsersLists extends Resource
         return $this->request(
             'post',
             'remarketing/users_lists',
-            ['multipart' => [
-                ['name' => 'file', 'contents' => $file],
-                ['name' => 'data', 'contents' => json_encode($data)]
-            ]]
+            [
+                'multipart' => [
+                    [
+                        'name' => 'data',
+                        'contents' => json_encode($data),
+                    ],
+                    [
+                        'name' => 'file',
+                        'contents' => $file,
+                        'filename' => 'file.txt',
+                        'headers' => [
+                            'Content-Type' => 'application/octet-stream',
+                        ]
+                    ],
+                ],
+            ]
         );
     }
 }
