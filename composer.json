@@ -1,5 +1,5 @@
 {
-    "name": "hazzy159/mytarget-api-client",
+    "name": "kradwhite/mytarget-api-client",
     "type": "library",
     "description": "MyTarget api client",
     "keywords": [
@@ -8,7 +8,7 @@
 		"api",
         "client"
     ],
-    "homepage": "https://github.com/hazzy159/mytarget-api-client",
+    "homepage": "https://github.com/kradwhite/mytarget-api-client",
     "license": "BSD-3-Clause",
     "authors": [
         {
