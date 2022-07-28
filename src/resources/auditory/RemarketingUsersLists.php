@@ -42,8 +42,12 @@ class RemarketingUsersLists extends Resource
             [
                 'multipart' => [
                     [
-                        'name' => 'data',
-                        'contents' => json_encode($data),
+                        'name' => 'name',
+                        'contents' => $data['name'],
+                    ],
+                    [
+                        'name' => 'type',
+                        'contents' => $data['type'],
                     ],
                     [
                         'name' => 'file',

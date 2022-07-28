@@ -1443,7 +1443,7 @@ final class Client
      */
     private function buildClient(string $accessToken, array &$config): GuzzleClient
     {
-        $baseUri = @$config['sandbox'] ? 'https://target-sandbox.my.com/api/v2/' : 'https://target.my.com/api/v2/';
+        $baseUri = @$config['sandbox'] ? 'https://target-sandbox.my.com/api/v3/' : 'https://target.my.com/api/v3/';
         if (!isset($config['assoc'])) {
             $config['assoc'] = true;
         }
