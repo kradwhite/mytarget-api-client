@@ -29,7 +29,7 @@ MyTarget API Client for PHP
 
 ## Получение токена
 ```php
-use hazzy159\myTarget\oauth2\Oauth2;
+use kradwhite\myTarget\oauth2\Oauth2;
 
 $oauth = new Oauth2();
 $token = $oauth->clientCredentialsGrant('client_id', 'client_secret')->request();
