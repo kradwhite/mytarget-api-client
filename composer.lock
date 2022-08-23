@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b82bf685b8ea7b75756f7c4b7ee68d1d",
+    "content-hash": "4e96e81052a32673050a943cbc7cf542",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -331,23 +331,23 @@
         },
         {
             "name": "kradwhite/mytarget-oauth2",
-            "version": "0.2.11",
+            "version": "0.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kradwhite/mytarget-oauth2.git",
-                "reference": "d78877f93634c799592374682c39c496228c625e"
+                "reference": "cadb8d47eab14720790b74e764053d299240cb06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kradwhite/mytarget-oauth2/zipball/d78877f93634c799592374682c39c496228c625e",
-                "reference": "d78877f93634c799592374682c39c496228c625e",
+                "url": "https://api.github.com/repos/kradwhite/mytarget-oauth2/zipball/cadb8d47eab14720790b74e764053d299240cb06",
+                "reference": "cadb8d47eab14720790b74e764053d299240cb06",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "^7.4.5",
-                "php": "~8.1"
+                "php": ">=7.1"
             },
             "require-dev": {
                 "codeception/codeception": "^5.0.2",
@@ -387,9 +387,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kradwhite/mytarget-oauth2/issues",
-                "source": "https://github.com/kradwhite/mytarget-oauth2/tree/0.2.11"
+                "source": "https://github.com/kradwhite/mytarget-oauth2/tree/0.2.12"
             },
-            "time": "2022-08-22T13:52:47+00:00"
+            "time": "2022-08-23T03:00:12+00:00"
         },
         {
             "name": "psr/http-client",

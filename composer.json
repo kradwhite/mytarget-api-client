@@ -21,7 +21,7 @@
     "require": {
         "php": ">=7.1",
         "guzzlehttp/guzzle": "^7.4.5",
-        "kradwhite/mytarget-oauth2": "^0.2.11",
+        "kradwhite/mytarget-oauth2": "^0.2.12",
         "ext-json": "*"
     },
     "require-dev": {
